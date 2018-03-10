@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+    <!-- 标签库的注册 -->
+    <tlib-version>1.0</tlib-version>
+    <short-name>t</short-name>
+    <uri>http://org.denny.mytags</uri>
+    
+    <!-- 注册标签 -->
+	<tag>
+		<name>get_ip</name>
+		<tag-class>org.denny.dynamictag.ClientIPTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<name>get_content</name>
+		<tag-class>org.denny.dynamictag.GetBodyContent</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+    
+	<tag>
+		<name>if</name>
+		<tag-class>org.denny.dynamictag.IFTag</tag-class>
+		<body-content>tagdependent</body-content>
+		<attribute>
+			<name>test</name>
+			<required>true</required>
+			<!-- 
+				runtime expression value 指:运行时表达式的值
+				true 表示支持 EL和jsp 表达式 -->
+			<rtexprvalue>true</rtexprvalue> 
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>forEach</name>
+		<tag-class>org.denny.dynamictag.ForEachTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>itorator</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue> 
+		</attribute>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue> 
+		</attribute>
+	</tag>
+    
+    
+</taglib>
